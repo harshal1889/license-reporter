@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "org.sonarqube" version "3.0"
+    id "com.diffplug.gradle.spotless" version "4.4.0"
+}
+
+apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'groovy'
+apply plugin: 'jacoco'
+
+springBoot {
+    buildInfo()
+}
+
+group = 'de.volkswagen.internal'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+
+}
+
+bootRun {
+    if (project.hasProperty('args')) {
+        args project.args.split(',')
+    }
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.security:spring-security-crypto'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
