@@ -22,7 +22,7 @@ This script is used to generate license reports for the applications currently b
     ```
 
 ## Instructions
-1. Configure the following variables before starting the script execution
+1. Configure the following variables in the script before starting the execution
    ```shell script
    REPO_DIR=# path to root repository folder
    NON_GRADLE_REPOS=("") # array of non gradle repos.Example ("repo1" "repo2")
