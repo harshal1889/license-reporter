@@ -29,7 +29,7 @@ This script is used to generate license reports for the applications currently b
    ```
 2. Run the script :)
     ```shell script
-    ./generate-license_report_service.sh
+    ./license_report_gradle.sh
     ```
 
 3. The approximate time to generate a single report within 15-20 seconds. The scripts output the information on the console and is fail first.
