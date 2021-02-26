@@ -64,7 +64,7 @@ generateReports() {
       echo "Skipping non gradle apps $app"
       continue
     fi
-
+    cd $app
     echo "Started report generation for  $app"
     chmod +x gradlew
     ./gradlew clean
